@@ -83,6 +83,22 @@
             android:fontFamily="sans-serif-black"
             />
 
+        <TextView
+        android:id="@+id/tv_turbidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/humidity"
+        android:drawablePadding="10dp"
+        android:fontFamily="sans-serif-black"
+        />
+
+
+
 
         <Button
             android:id="@+id/btn_pumpOn"

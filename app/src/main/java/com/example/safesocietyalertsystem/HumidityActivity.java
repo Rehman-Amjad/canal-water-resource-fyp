@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,7 +34,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class HumidityActivity extends AppCompatActivity {
 
     private ImageView imgSmokeBack;
-    private TextView tvFire,tv_value;
+    private TextView tvFire,tv_value,tv_turbidity;
     private Button btnPumpOn, btnPumpOff, btnBack;
 
     private FirebaseDatabase database;
@@ -57,6 +58,7 @@ public class HumidityActivity extends AppCompatActivity {
         btnPumpOff = findViewById(R.id.btn_pumpOff);
         btnBack = findViewById(R.id.btn_back);
         tv_value = findViewById(R.id.tv_value);
+        tv_turbidity = findViewById(R.id.tv_turbidity);
 
         // Initialize Firebase Database
         database = FirebaseDatabase.getInstance();
@@ -68,6 +70,7 @@ public class HumidityActivity extends AppCompatActivity {
         // Fetch real-time sensor data from Firebase and display in tvFire
         fetchSensorData();
         fetchPumpValue();
+        turbidityValue();
 
         imgSmokeBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +86,7 @@ public class HumidityActivity extends AppCompatActivity {
                 if(invoke.equals("1")){
                     Toast.makeText(HumidityActivity.this, "Pump Cannot On Due to Turbidity Value", Toast.LENGTH_SHORT).show();
                 }else{
-                    pumpRef.setValue("0");
+                    pumpRef.setValue("1");
                     Toast.makeText(HumidityActivity.this, "Pump is now ON", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -93,7 +96,7 @@ public class HumidityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Turn the pump OFF in Firebase
-                pumpRef.setValue("1");
+                pumpRef.setValue("0");
                 Toast.makeText(HumidityActivity.this, "Pump is now OFF", Toast.LENGTH_SHORT).show();
 
             }
@@ -116,7 +119,7 @@ public class HumidityActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String sensorData = dataSnapshot.getValue(String.class);
                 if (sensorData != null) {
-                  if(sensorData.equals("0")){
+                  if(sensorData.equals("1")){
                       tvFire.setText("Pump is on");
                   }else{
                       tvFire.setText("Pump is Off");
@@ -151,6 +154,45 @@ public class HumidityActivity extends AppCompatActivity {
     }
 
 
+    void turbidityValue(){
+
+       FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("WaterData");
+        DatabaseReference callref=myRef.child("Current");
+
+
+        myRef.addChildEventListener(new ChildEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+              String  fireValue=snapshot.child("TurbiditySensor").getValue(String.class);
+
+              tv_turbidity.setText("Current Turbidity Value: " + fireValue);
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
 //    // Method to check tvFire's text and turn off the pump if necessary
 //    private void checkFireTextAndAutoOff() {
