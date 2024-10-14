@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "466114118023",
+    "firebase_url": "https://canal-water-management-default-rtdb.firebaseio.com",
+    "project_id": "canal-water-management",
+    "storage_bucket": "canal-water-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466114118023:android:3ed8af1f74abe32ef19322",
+        "android_client_info": {
+          "package_name": "com.example.safesocietyalertsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQbrL2z8osUm8Al2WKEHfJoAwvkZ-dZV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HumidityActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@color/Frozi"
+        android:gravity="center|start"
+        >
+
+
+        <ImageView
+            android:id="@+id/img_smoke_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_arrow"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temperature Sensor"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center|top"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/pump_image"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/humidity"
+            android:drawablePadding="10dp"
+            android:fontFamily="sans-serif-black"
+            />
+
+        <TextView
+            android:id="@+id/tv_fire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/humidity"
+            android:drawablePadding="10dp"
+            android:fontFamily="sans-serif-black"
+            />
+
+
+        <Button
+            android:id="@+id/btn_pumpOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pump On"
+            android:layout_marginTop="20dp"
+            android:background="@color/Frozi"
+            android:textColor="@color/white"
+            android:layout_marginRight="5dp"
+            />
+
+        <Button
+            android:id="@+id/btn_pumpOff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pump Off"
+            android:background="@color/Frozi"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_marginRight="5dp"
+            />
+
+
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:background="@color/Frozi"
+
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

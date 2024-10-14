@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <item android:id="@+id/menu_Fire"-->
+<!--        android:icon="@drawable/ic_smoke_sensor"-->
+<!--        android:title="TDS"/>-->
+
+
+
+    <item android:id="@+id/menu_Smoke"
+        android:icon="@drawable/ic_sensor"
+        android:title="Turbidity Info"/>
+
+
+    <item android:id="@+id/menu_Ultrasonic"
+        android:icon="@drawable/ic_ultrasonic_sensor"
+        android:title="Water level"/>
+
+    <item android:id="@+id/menu_humidity"
+        android:icon="@drawable/humidity"
+        android:title="Pump Control"/>
+
+    <item android:id="@+id/menu_door"
+
+        android:visible="false"
+        android:icon="@drawable/door_image"
+        android:title="Door"/>
+
+    <item android:id="@+id/menu_temp"
+        android:icon="@drawable/temper"
+        android:visible="false"
+        android:title="Temperature"/>
+
+    <item android:id="@+id/menu_show_all_data"
+        android:icon="@drawable/ic_show"
+        android:title="History"/>
+
+    <item android:id="@+id/menu_delete"
+        android:icon="@drawable/ic_show"
+        android:visible="false"
+        android:title="Delete History"/>
+
+    <item android:id="@+id/menu_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"/>
+
+</menu>
